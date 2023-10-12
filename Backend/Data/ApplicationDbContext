@@ -1,0 +1,12 @@
+using Entity;
+using Microsoft.EntityFrameworkCore;
+
+public class ApplicationDbContext : DbContext
+{
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
+    {
+    }
+    // Define DbSet properties for your database entities here.
+    public DbSet<EntityForL> demoEntities { get; set; }
+}
