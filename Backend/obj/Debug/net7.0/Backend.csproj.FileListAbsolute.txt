@@ -73,3 +73,4 @@ C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\Microsoft.Ent
 C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

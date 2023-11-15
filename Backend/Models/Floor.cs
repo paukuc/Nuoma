@@ -8,6 +8,5 @@ public class Floor
     public int BuildingID { get; set; }
     public Building Building { get; set; }
 
-    [Required]
     public ICollection<Apartment> Apartments { get; set; } = new List<Apartment>();
 }

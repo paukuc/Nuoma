@@ -33,5 +33,10 @@ public class RentalDbContext : DbContext
         modelBuilder.Entity<Apartment>()
             .HasIndex(a => new { a.FloorID, a.Room })
             .IsUnique();
+        modelBuilder.Entity<Floor>()
+            .HasOne(f => f.Building)
+            .WithMany(b => b.Floors)
+            .HasForeignKey(f => f.BuildingID)
+            .IsRequired(true);
     }
 }

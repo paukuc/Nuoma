@@ -10,9 +10,9 @@ namespace Backend.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropIndex(
-                name: "IX_Apartments_FloorID",
-                table: "Apartments");
+            // migrationBuilder.DropIndex(
+            //     name: "IX_Apartments_FloorID",
+            //     table: "Apartments");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Apartments_FloorID_Room",

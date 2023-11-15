@@ -1,7 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using System.Text;
 [ApiController]
-[Route("[controller]")]
+[Route("users")]
 public class UserController : ControllerBase
 {
     private readonly RentalDbContext _context;
@@ -15,7 +21,8 @@ public class UserController : ControllerBase
     /// </summary>
     /// <returns>A list of entities.</returns>
     /// <response code="500">On exception.</response>
-    [HttpGet("list")]
+    [Authorize(Roles = "Admin")]
+    [HttpGet]
     [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public IActionResult List()
@@ -24,8 +31,8 @@ public class UserController : ControllerBase
         var ents = _context.Users.ToList();
         return Ok(ents);
     }
-
-    [HttpPost("create")]
+    [Authorize(Roles = "Admin")]
+    [HttpPost]
     [ProducesResponseType(typeof(User), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public IActionResult Create([FromBody] User user)
@@ -44,8 +51,8 @@ public class UserController : ControllerBase
 
         return CreatedAtAction(nameof(List), new { id = user.UserID }, user);
     }
-
-    [HttpPut("update/{id}")]
+    [Authorize(Roles = "Admin")]
+    [HttpPut("{id}")]
     [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -75,8 +82,8 @@ public class UserController : ControllerBase
 
         return Ok(user);
     }
-
-    [HttpDelete("delete/{id}")]
+    [Authorize(Roles = "Admin")]
+    [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public IActionResult Delete(int id)
@@ -126,7 +133,7 @@ public class UserController : ControllerBase
 
 
 
-
+    [Authorize(Roles = "Admin")]
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

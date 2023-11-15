@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 public class ApartmentCreationDto
 {
     [Required]
-    public string Address { get; set; }
+    public int BuildingId { get; set; }
     [Required]
     public int FloorNumber { get; set; }
     [Required]
