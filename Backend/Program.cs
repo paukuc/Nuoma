@@ -15,15 +15,21 @@ var configuration = builder.Configuration;
 // Register your DbContext using the connection string
 builder.Services.AddDbContext<RentalDbContext>(options =>
 {
-    options.UseMySql(
-        configuration.GetConnectionString("MySqlConnection"),
-        new MySqlServerVersion(new Version(10, 5, 12)), // Specify the server version here
-        mySqlOptions =>
-        {
-            // Configure charset behavior here if needed
-        }
-    );
+    options.UseSqlServer(
+        "Server=tcp:rentserver.database.windows.net,1433;Initial Catalog=rentDB;Persist Security Info=False;User ID=paulius;Password=Mydatabase1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 });
+
+// builder.Services.AddDbContext<RentalDbContext>(options =>
+// {
+//     options.UseSqlServer(
+//         configuration.GetConnectionString("MySqlConnection"),
+//         new MySqlServerVersion(new Version(10, 5, 12)), // Specify the server version here
+//         mySqlOptions =>
+//         {
+//             // Configure charset behavior here if needed
+//         }
+//     );
+// });
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
@@ -50,7 +56,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddControllers();
 
 var app = builder.Build();
-
+app.Services.GetRequiredService<RentalDbContext>().Database.Migrate();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

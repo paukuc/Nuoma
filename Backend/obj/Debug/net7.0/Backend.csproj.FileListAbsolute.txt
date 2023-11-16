@@ -74,3 +74,8 @@ C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\Microsoft.Ext
 C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\publish\web.config
+C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\publish\appsettings.Development.json
+C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\publish\appsettings.json
+C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\publish\Backend.deps.json
+C:\Users\Paulius\Desktop\saitynai_backend\Backend\bin\Debug\net7.0\publish\Backend.runtimeconfig.json
